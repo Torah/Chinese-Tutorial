@@ -14,6 +14,23 @@ contentType: guide
 contentTypeTitle: How Mapbox works
 ---
 
+---
+标题：概览
+描述：了解Mapbox提供的构建模块，以便创建自定义地图应用。
+头部图片：/help/img/categories/guide.svg
+颜色：青色
+前置JS文件：
+  - 引入数据从'../../constants.json';
+  - 引入文本样式从'@mapbox/mr-ui/chevronous-text';
+  - 引入演示框架从'@mapbox/dr-ui/demo-iframe';
+  - 引入演示静态文件从'../../components/demo-static';
+  - 引入HMW地图资源从'../../components/diagrams/hmw-map-sources';
+  - 引入GL封装文件从'@mapbox/dr-ui/gl-wrapper';
+内容类型：教程指南
+内容类型标题：如何使用Mapbox进行工作开发
+---
+
+
 Welcome to Mapbox! Mapbox is a developer platform used [across industries](https://www.mapbox.com/industries) to create custom applications that solve problems with maps, data, and spatial analysis. Mapbox's tools are building blocks that support every part of the web and mobile map-making process. Whether your goal is to build a beautiful map to match your website or to build a full-featured geoprocessing application, we have you covered.
 
 These guides will introduce you to the building blocks of Mapbox and how you can:
@@ -23,6 +40,18 @@ These guides will introduce you to the building blocks of Mapbox and how you can
 - **Upload** or **create** custom data.
 - **Develop** full-featured web and mobile applications.
 - **Extend** your app's functionality with web services for [geocoding](/help/glossary/geocoding/), directions, spatial analysis, and more.
+
+欢迎来到Mapbox！MapBox是一个跨行业的开发平台，用于创建自定义应用程序，解决地图、数据和空间分析问题。Mapbox的工具是构建模块，支持Web和移动地图制作过程的每个部分。无论您的目标是建立一个好看的地图来匹配您的网站，还是建立一个功能齐全的地理处理应用程序，我们都为您提供了帮助。
+
+这些指南将向您介绍MapBox的构建以及如何使用：
+- 使用MapBox的**大量数据数据**。
+- 将你的**地图样式渲染**要素最小细节。
+- **上传**或**创建**自定义数据。
+- **开发**功能完备的网络和移动地图应用。
+- **扩展**应用程序的地图功能,包括使用[地理编码](/help/glossary/geocoding/)、路径分析、空间分析等的Web服务。以简单代码创建静态地图。
+
+
+
 - **Create** static maps programmatically.
 
 ## Use Mapbox map data
