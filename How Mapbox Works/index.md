@@ -14,18 +14,19 @@ contentType: guide
 contentTypeTitle: How Mapbox works
 ---
 
+
 ---
-标题：概览
-描述：了解Mapbox提供的构建模块，以便创建自定义地图应用。
-头部图片：/help/img/categories/guide.svg
-颜色：青色
-前置JS文件：
-  - "引入数据从'../../constants.json';"
-  - "引入文本样式从'@mapbox/mr-ui/chevronous-text';"
-  - "引入演示框架从'@mapbox/dr-ui/demo-iframe';"
-  - "引入{演示静态文件}从'../../components/demo-static';"
-  - "引入{HMW地图资源}从'../../components/diagrams/hmw-map-sources';"
-  - "引入GL封装文件从'@mapbox/dr-ui/gl-wrapper';"
+标题:概览
+描述:了解Mapbox提供的构建模块，以创建自定义地图应用.
+标题图片:/help/img/categories/guide.svg.\
+颜色:青色
+前置JS文件:
+  - "引入数据从 '../../constants.json';"
+  - "引入文本样式从 '@mapbox/mr-ui/chevronous-text';"
+  - "引入演示框架从 '@mapbox/dr-ui/demo-iframe';"
+  - "引入{ 演示静态文件 } 从 '../../components/demo-static';"
+  - "引入{ HMW地图资源 } 从 '../../components/diagrams/hmw-map-sources';"
+  - "引入GL封装文件从 '@mapbox/dr-ui/gl-wrapper';"
 内容类型：教程指南
 内容类型标题：如何使用Mapbox进行工作开发
 ---
@@ -216,7 +217,7 @@ Each SDK comes bundled with five Mapbox-designed map styles and can handle any c
 
  ### 移动端地图应用：
  
-  Mapbox为[IOS](https://www.mapbox.com/ios-sdk/)和[Android](https://www.mapbox.com/android-docs/)提供了一个Maps SDK，用于在本地应用程序中发布地图。ios和android的maps sdk是苹果mapkit和googlemaps sdk的替代产品。maps-sdk对于有这两方面经验的移动开发人员来说应该很熟悉。通常，可以通过更改 一行代码将地图替换为MapBox。
+  Mapbox为[IOS](https://www.mapbox.com/ios-sdk/)和[Android](https://www.mapbox.com/android-docs/)提供了一个Maps SDK，用于在本地应用程序中发布地图。IOS和Android的Maps SDK是苹果Mapkit和Googlemaps SDK的替代产品。Maps-SDK对于有这两方面经验的移动开发人员来说应该很熟悉。通常，可以通过更改 一行代码将地图替换为MapBox。
   
   ![移动设备上的地图框地图](/help/img/screenshots/mobile.png)
   
