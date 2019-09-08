@@ -18,7 +18,7 @@ contentTypeTitle: How Mapbox works
 ---
 标题:概览
 描述:了解Mapbox提供的构建模块，以创建自定义地图应用.
-标题图片:/help/img/categories/guide.svg.\
+标题图片:/help/img/categories/guide.svg.
 颜色:青色
 前置JS文件:
   - "引入数据从 '../../constants.json';"
