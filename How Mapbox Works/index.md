@@ -20,12 +20,12 @@ contentTypeTitle: How Mapbox works
 头部图片：/help/img/categories/guide.svg
 颜色：青色
 前置JS文件：
-  - 引入数据从'../../constants.json';
-  - 引入文本样式从'@mapbox/mr-ui/chevronous-text';
-  - 引入演示框架从'@mapbox/dr-ui/demo-iframe';
-  - 引入演示静态文件从'../../components/demo-static';
-  - 引入HMW地图资源从'../../components/diagrams/hmw-map-sources';
-  - 引入GL封装文件从'@mapbox/dr-ui/gl-wrapper';
+  - "引入数据从'../../constants.json';"
+  - "引入文本样式从'@mapbox/mr-ui/chevronous-text';"
+  - "引入演示框架从'@mapbox/dr-ui/demo-iframe';"
+  - "引入{演示静态文件}从'../../components/demo-static';"
+  - "引入{HMW地图资源}从'../../components/diagrams/hmw-map-sources';"
+  - "引入GL封装文件从'@mapbox/dr-ui/gl-wrapper';"
 内容类型：教程指南
 内容类型标题：如何使用Mapbox进行工作开发
 ---
