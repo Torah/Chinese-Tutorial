@@ -347,5 +347,5 @@ Whether you're creating a custom style with Mapbox Studio or building a mobile a
 
 ## 添加属性
 
-无论您是使用mapbox studio创建自定义样式，还是使用android sdk创建移动应用程序，所有Mapbox工具都需要根据我们的[服务条款](https://www.mapbox.com/tos)进行[归档](/help/how-mapbox-works/attribution)。
+无论您是使用Mapbox Studio创建自定义样式，还是使用Android SDK创建移动应用程序，所有Mapbox工具都需要根据我们的[服务条款](https://www.mapbox.com/tos)进行[归档](/help/how-mapbox-works/attribution)。
 
