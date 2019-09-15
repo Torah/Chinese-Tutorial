@@ -59,7 +59,7 @@ Maps using Mapbox map designs or data must display the Mapbox wordmark and text 
 加上了自定义的attribution以及文字商标的Mapbox静止地图。
 Mapbox static map with custom attribution and wordmark applied.
 
-## Attribution是如何运转的
+## Attribution是如何运作的
 ## How attribution works
 
 Mapbox需要两种attribution：文字商标和文字attribution
