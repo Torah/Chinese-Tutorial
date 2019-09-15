@@ -34,7 +34,7 @@ A **dataset** is an editable collection of [GeoJSON](/help/glossary/geojson/) [f
 In this example, you can see a visual representation of a dataset inside the **Mapbox Studio dataset editor** on the left and the actual contents of the **dataset**, a GeoJSON FeatureCollection, on the right. The contents of the dataset include geometry and properties for each point that you can see on the left, but does not contain any style information. For more details on how to style the points (for example, specify the symbols, colors, and the font for labels), see the [Upload data](/help/how-mapbox-works/uploading-data/) guide, which covers converting datasets to tilesets.
 
 
-## 数据集是怎么运转的
+## 数据集是怎么运作的
 ## How datasets work
 
 数据集是您的**[GeoJSON](http://geojson.org/)**原始数据的一个托管的版本。您可以用数据集编辑器或[Mapbox Datasets API](https://docs.mapbox.com/api/maps/#datasets)处理、编辑您的数据集。
