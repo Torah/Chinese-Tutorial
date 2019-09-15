@@ -11,7 +11,7 @@ contentType: guide
 您需要获取[access token](/help/glossary/access-token)（访问令牌）以使用Mapbox的各种工具、API、SDK。Mapbox利用access token将API请求和您的账号联系在一起。用户可以在[access token页](https://account.mapbox.com/access-tokens)或用[Mapbox Tokens API](https://docs.mapbox.com/api/accounts/#tokens)编程查找、新建、以及删除已有的access token。
 To use any of Mapbox's tools, APIs, or SDKs, you'll need a Mapbox [access token](/help/glossary/access-token). Mapbox uses access tokens to associate API requests with your account. You can find your access tokens, create new ones, or delete existing ones on your [Access Tokens page](https://account.mapbox.com/access-tokens)  or programmatically using the [Mapbox Tokens API](https://docs.mapbox.com/api/accounts/#tokens).
 
-## Access token是如何运转的
+## Access token是如运作的
 ## How access tokens work
 
 ### 范围
