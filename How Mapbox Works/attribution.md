@@ -9,7 +9,7 @@ prependJs:
   - "import AppropriateImage from '../../components/appropriate-image';"
 contentType: guide
 ---
-
+使用了Mapbox地图设计或数据的地图必须显示Mapbox的文字商标和文字的attribution（属性标识）。这个指南解释了什么时候、为什么、以及您如何被要求添加这些形式的attribution。
 Maps using Mapbox map designs or data must display the Mapbox wordmark and text attribution. This guide explains when, why, and how you are required to add these forms of attribution.
 
 <div class='mapbox-wordmark-container' title='mapbox static map image with proper attribution'>
@@ -56,90 +56,150 @@ Maps using Mapbox map designs or data must display the Mapbox wordmark and text 
 }
 </style>
 
+加上了自定义的attribution以及文字商标的Mapbox静止地图。
 Mapbox static map with custom attribution and wordmark applied.
 
+## Attribution是如何运转的
 ## How attribution works
 
+Mapbox需要两种attribution：文字商标和文字attribution
 Mapbox requires two types of attribution: a wordmark and text attribution.
 
+
+### Mapbox的文字商标
 ### Mapbox wordmark
 
+_Mapbox文字商标_是一个含有特定样式的"Mapbox"这个单词的小图像。它通常会在地图的左下角。您可以将文字商标移至地图的其他角落，但我们要求Mapbox的文字商标出现在地图上从而使Mapbox和Mapbox的地图得到应有的引用。如果您想要移动或移除Mapbox商标，请联系我们的[销售团队](https://www.mapbox.com/contact/sales)来商讨企业套餐中的可能选项。
 The _Mapbox wordmark_ is a small image containing the stylized word "Mapbox". It typically resides on the bottom left corner of a map. While you may move the wordmark to a different corner of the map, we require the Mapbox wordmark to appear on our maps so that Mapbox and its maps get proper credit. If you wish to otherwise move or remove the Mapbox wordmark, please contact our [sales team](https://www.mapbox.com/contact/sales) to discuss options available under our Enterprise plans.
 
+
+### 文字attribution
 ### Text attribution
 
+_文字attribution_至少包含三个链接：[`© Mapbox`](https://www.mapbox.com/about/maps/)、[`© OpenStreetMap`](http://www.openstreetmap.org/about/)、以及[`Improve this map`](https://www.mapbox.com/map-feedback/#/-74.5/40/10)。这个attribution是严格_要求_在使用Mapbox Streets tileset（瓦片集）时出现的，因为它的源数据来自OpenStreetMap而需要遵从[ODbL](http://opendatacommons.org/licenses/odbl/summary/)许可。一些其他的Mapbox提供的tileset需要另外的attribution，它们都存储在tileset的[TileJSON](/help/glossary/tilejson)里。
 The _text attribution_ contains at least three links: [`© Mapbox`](https://www.mapbox.com/about/maps/), [`© OpenStreetMap`](http://www.openstreetmap.org/about/) and [`Improve this map`](https://www.mapbox.com/map-feedback/#/-74.5/40/10). This attribution is strictly _required_ when using the Mapbox Streets tileset due to OpenStreetMap's data source [ODbL](http://opendatacommons.org/licenses/odbl/summary/) license. Some other Mapbox-provided tilesets require additional attribution which is stored in the [TileJSON](/help/glossary/tilejson) of the tileset.
 
+### 什么时候需要您提供attribution？
 ### When do you have to provide attribution?
 
+使用了Mapbox地图设计或所提供的数据的地图必须显示Mapbox的文字商标和文字的attribution。这包括:
 Maps using Mapbox map designs or data supplied by Mapbox must display both the Mapbox wordmark and text attribution. This includes:
 
+-   使用了Mapbox风格模板的地图，例如使用了Mapbox Streets、Mapbox Outdoors或Mapbox Light、或基于以上创建的风格的地图。
 -   Maps using a Mapbox template style such as Mapbox Streets, Mapbox Outdoors or Mapbox Light, or a style derived from those styles.
+-   使用了Mapbox tileset的地图，例如使用了Mapbox Streets、Mapbox Terrain和Mapbox Satellite的地图。
 -   Maps using a Mapbox tileset, such as Mapbox Streets, Mapbox Terrain, and Mapbox Satellite.
 
+
+如果您的地图使用了自定义的Mapbox托管的样式或数据，您必须要显示Mapbox的文字商标。（大部分用Mapbox Studio搭建的地图都属于这种情况。）如果您没有使用Mapbox的设计或者没有使用Mapbox提供的数据，您可以忽视文字attribution。
 You must also display the Mapbox wordmark if your map uses a custom style or custom data hosted by Mapbox. (This is the case for most maps built with Mapbox Studio.) If you do not use Mapbox designs or data supplied by Mapbox, you may omit text attribution.
 
+如果您的地图没有使用Mapbox的设计、数据、托管内容，或其他Mapbox API，则不要求您显示上述任意一种attribution。
 If your map does not use Mapbox designs, data, hosting, or other Mapbox APIs, Mapbox does not require you to provide attribution in either form.
 
+
+## 添加 attribution
 ## Adding attribution
 
+当使用Mapbox工具创建地图的时候，attribution通常都会自动加到地图上，但也不是所有情况都会如此。因发布地图的方式而异，您可能需要手动添加attribution。
 When creating a map with Mapbox tools, attribution is usually added automatically, but it may not be added in every case! Depending on how you publish your map, you may need to add attribution manually.
 
+_注意：您可以调整attribution字体的颜色和大小以匹配地图主题，但attribution必须是清晰可见的。您不能改变Mapbox文字商标的样式。_
 _Note: You can adjust the font color and size of the attribution to match your theme, but attribution must be legible. You may not style the Mapbox wordmark._
 
+
+### Mapbox Studio
 ### Mapbox Studio
 
+当查看用Mapbox Studio生成的[共享URL](https://www.mapbox.com/studio-manual/overview/publish-your-style/#share)的时候，Mapbox的文字商标以及attribution会自动添加进去。
 When viewing a [share URL](https://www.mapbox.com/studio-manual/overview/publish-your-style/#share) generated with Mapbox Studio, the Mapbox wordmark and attribution will be included automatically.
 
+
+### Mapbox GL JS
 ### Mapbox GL JS
 
+通过[Mapbox GL JS](https://www.mapbox.com/mapbox-gl-js/api/)生成的地图将会自动在地图的右下角包含attribution。请参照API文档中的[`AttributionControl`](https://www.mapbox.com/mapbox-gl-js/api/#attributioncontrol)获取更多关于显示选项的信息。
 Maps created with [Mapbox GL JS](https://www.mapbox.com/mapbox-gl-js/api/) will automatically include attribution on the bottom right corner of the map. For additional display options, see the API documentation for [`AttributionControl`](https://www.mapbox.com/mapbox-gl-js/api/#attributioncontrol).
 
 ### Mapbox.js
+### Mapbox.js
 
+通过[Mapbox.js](https://www.mapbox.com/mapbox.js/)生成的地图将会自动包含Mapbox的文字商标和attribution。如果您通过Mapbox.js使用Mapbox地图的样式或数据，您需要在地图上标识Mapbox。请参照API文档中的[`L.control.attribution`](https://www.mapbox.com/mapbox.js/api/v3.1.1/l-control-attribution/)获取更多关于显示选项的信息。
 Maps created with [Mapbox.js](https://www.mapbox.com/mapbox.js/) automatically include the Mapbox wordmark and attribution. If you are using Mapbox map styles or data with Mapbox.js, you need to attribute Mapbox. For display options, see the API documentation for [`L.control.attribution`](https://www.mapbox.com/mapbox.js/api/v3.1.1/l-control-attribution/).
 
+[Mapbox.js](https://www.mapbox.com/mapbox.js)是一个您可以下载、编辑或使用托管版本的[开源项目](http://github.com/mapbox/mapbox.js)。您可以在除了Mapbox之外的服务中使用它。
 [Mapbox.js](https://www.mapbox.com/mapbox.js) is an [open source project](http://github.com/mapbox/mapbox.js) that you can download and edit or use the hosted version. You can even use it with services other than Mapbox.
 
+如果您在一个项目中使用Mapbox.js，您不需要对于所使用的库进行声明。如果您在一个开源项目中把它的源包含进去，请[阅读并参照它的BSD许可](https://github.com/mapbox/mapbox.js/blob/publisher-production/LICENSE.md)。
 If you use Mapbox.js in a project, you don’t need to attribute your use of the library. If you include its source in an open source project, please [read and follow its BSD license](https://github.com/mapbox/mapbox.js/blob/publisher-production/LICENSE.md).
 
+
+### Mapbox iOS 地图 SDK
 ### Mapbox Maps SDK for iOS
 
+
+使用了[Mapbox iOS 地图 SDK](https://www.mapbox.com/ios-sdk/)的地图将包含一个信息按钮，在被点到时会弹出一张上拉菜单。
 Maps that use the [Mapbox Maps SDK for iOS](https://www.mapbox.com/ios-sdk/) will include an information button that reveals an action sheet when tapped.
 
 <img alt="Mapbox Maps SDK for iOS attribution action sheet" src="/help/img/attribution/ios-attribution.gif" className="block mx-auto" />
 
+
+默认设置里，信息按钮是位于地图的右下角。您可以在地图视野范围内把按钮移到另一个地方。
 By default, the information button is located on the bottom right of the map. You may move the information button to a different position within the map view.
 
+
+Mapbox为了您的使用便利而包含了这个内置的信息按钮。如果您决定不使用它，您必须在地图上以文字形式包含attribution。这些attribution里必须包括链接到`https://www.mapbox.com/about/maps/`的`© Mapbox`，链接到`http://www.openstreetmap.org/copyright`的`"© OpenStreetMap"` ，还有链接到`https://www.mapbox.com/map-feedback/`的`"Improve this map"` 。如果您选择使用我们的卫星样式，您还需要包含链接到`https://www.digitalglobe.com/`的`© DigitalGlobe`。请注意在未来，Mapbox可能会更新在上拉菜单中的信息并要求额外的标注我们的供应商的内容。
 Mapbox includes this built-in information button for your convenience. If you decide not to use it, you must include attribution on the map in a text format. The attribution must include `© Mapbox` as a link to `https://www.mapbox.com/about/maps/`, `"© OpenStreetMap"` as a link to `http://www.openstreetmap.org/copyright`, and `"Improve this map"` as a link to `https://www.mapbox.com/map-feedback/`. If you choose to use one of our Satellite styles, you must also include `© DigitalGlobe` as a link to `https://www.digitalglobe.com/`. Note that in the future, Mapbox may update the information on the action sheet and require additional attribution to our suppliers.
 
+此外，如果您不打算用内置信息按钮的话，您还需要在您的应用内提供一个放弃遥测的选项。如果您打算这样做的话，您必须从以下两种方法中选择一种：
 Additionally, you must provide a telemetry opt-out option elsewhere in your application if you do not plan to use the built-in information button. If you choose to do so, you must provide an alternative opt-out in one of two ways:
 
+
+1. 在您的应用程序束中，用`Settings.bundle`向系统设定应用的您的应用的部分加一项设置。如果您是手动安装的SDK，则里面包含了一个Settings.bundle的例子。如果您通过CocoaPods或Carthage安装的话，您可以[下载一个例子](https://github.com/mapbox/mapbox-gl-native/tree/ios-v{{constants.VERSION_IOS_MAPS}}/platform/ios/app/Settings.bundle)。
 1.  Add a setting to your application’s section in the system Settings app using a `Settings.bundle` in your application bundle. An example Settings.bundle is included with the SDK if you install it manually. If you installed the SDK via CocoaPods or Carthage, you can [download an example bundle](https://github.com/mapbox/mapbox-gl-native/tree/ios-v{{constants.VERSION_IOS_MAPS}}/platform/ios/app/Settings.bundle).
+2. 直接把设定加到应用中。向`MGLMapboxMetricsEnabled`的默认Boolean设置（`YES`）增加一个`UISwitch`。然后再您应用的`Info.plist`文件中，将`MGLMapboxMetricsEnabledSettingShownInApp`设置为`YES`。
 2.  Integrate the setting directly into your app. Hook a `UISwitch` control up to the `MGLMapboxMetricsEnabled` Boolean user default, which should be `YES` by default. Then set `MGLMapboxMetricsEnabledSettingShownInApp` to `YES` in your app’s `Info.plist` file.
 
+
+### Mapbox 安卓 地图 SDK
 ### Mapbox Maps SDK for Android
 
+
+使用了[Mapbox 安卓 地图 SDK](https://www.mapbox.com/android-docs/)的地图自动包含一个Mapbox的文字商标和信息按钮。信息按钮被点到时会弹出一个attribution板。
 Maps that use the [Mapbox Maps SDK for Android](https://www.mapbox.com/android-docs/) include a Mapbox wordmark and an information button automatically. The information button reveals an attribution panel when tapped.
 
 <img alt="Mapbox Maps SDK for Android attribution panel" src="/help/img/attribution/android-attribution.gif" className="block mx-auto" />
 
+Mapbox的文字商标和信息按钮默认位于地图的左下角。您可以把这些元素移到一个不同的位置，但它们仍必须在地图视野内。您可以参照关于[`UiSettings`](https://www.mapbox.com/android-docs/api/map-sdk/{{constants.VERSION_ANDROID_MAPS}}/com/mapbox/mapboxsdk/maps/UiSettings.html)的API文档获取更多的显示选项。您也可以在XML布局中移动它们的位置。
 By default, the Mapbox wordmark and information button are located on the bottom left of the map. You may move these elements to a different position, but they must stay on the map view. For display options, see the API documentation for the [`UiSettings`](https://www.mapbox.com/android-docs/api/map-sdk/{{constants.VERSION_ANDROID_MAPS}}/com/mapbox/mapboxsdk/maps/UiSettings.html) class. You may also reposition these elements within the activity’s XML layout.
 
+Mapbox为了您的使用便利而包含了这个内置的信息按钮。如果您决定不使用它，您必须在地图上以文字形式包含attribution。这些attribution里必须包括链接到`https://www.mapbox.com/about/maps/`的`© Mapbox`，链接到`http://www.openstreetmap.org/copyright`的`"© OpenStreetMap"` ，还有链接到`https://www.mapbox.com/map-feedback/`的`"Improve this map"` 。如果您选择使用我们的卫星样式，您还需要包含链接到`https://www.digitalglobe.com/`的`© DigitalGlobe`。请注意在未来，Mapbox可能会更新在attribution板中的信息并要求额外的标注我们的供应商的内容。
 Mapbox includes this built-in information button for your convenience. If you decide not to use it, you must include attribution on the map in a text format. The attribution must include `© Mapbox` as a link to `https://www.mapbox.com/about/maps/`, `"© OpenStreetMap"` as a link to `http://www.openstreetmap.org/copyright`, and `"Improve this map"` as a link to `https://www.mapbox.com/map-feedback/`. If you choose to use one of our Satellite styles, you must also include `© DigitalGlobe` as a link to `https://www.digitalglobe.com/`. Note that in the future, Mapbox may update the information on the attribution panel and require additional attribution to our suppliers.
 
+
+此外，您如果您不打算用内置信息按钮的话，您还需要在您的应用的其他位置提供一个[放弃遥测的选项](https://www.mapbox.com/android-sdk/#telemetry_opt_out)。
 Additionally, you must provide a [telemetry opt-out option](https://www.mapbox.com/android-sdk/#telemetry_opt_out) elsewhere in your application if you choose not to use the built-in information button.
 
+
+### Mapbox Unity 地图 SDK
 ### Mapbox Maps SDK for Unity
 
+您必须在任何使用[Mapbox Unity 地图 SDK](https://www.mapbox.com/unity-sdk/)的地图上放Mapbox的文字商标和attribution标识。我们给Unity地图SDK提供了一个包含了所有所需信息的`Attribution` prefab。这个prefab使用UGUI完成整合和自定义。
 You must include the Mapbox wordmark and attribution notice on any map that uses the [Mapbox Maps SDK for Unity](https://www.mapbox.com/unity-sdk/). We provide an `Attribution` prefab with the Maps SDK for Unity that includes all required information. This prefab utilizes UGUI for integration and customization.
 
+
+您可以调整Mapbox文字商标和attribution标识的位置，但它们必须在地图上能被看到。您也可以改变attribution标识的背景（默认是透明的）和文字颜色来匹配您的设计审美，但所有信息必须清晰可见。
 You may adjust the position of the Mapbox wordmark and attribution notice, but they must stay visible on the map. You may also change the background (transparent by default) and text color of the text attribution notice to match your design aesthetics, but all information must be legible.
 
+
+您不能另行改变Mapbox的文字商标或文字attribution标识。如果您想要移动或移除Mapbox文字商标，请联系我们的[sales team](https://www.mapbox.com/contact/sales)来讨论我们企业套餐中的可选选项。
 You may not otherwise alter the Mapbox wordmark or text attribution notice. If you wish to otherwise move or remove the Mapbox wordmark, please contact our [sales team](https://www.mapbox.com/contact/sales) to discuss options available under our Enterprise plans.
 
+
+### 静态 & 打印
 ### Static & print
 
+[静态](https://docs.mapbox.com/api/maps/#static-images) 和打印的地图需要像引用照片那样标识出attribution：在图片附近以文字形式解说。如果您能放HTML，请使用这部分包含了Mapbox和OpenStreetMap链接的代码:
 [Static](https://docs.mapbox.com/api/maps/#static-images) and print maps need to be attributed in the same fashion as you would cite a photograph: in a textual description near the image. If you can include HTML, use this code snippet that includes links to Mapbox & OpenStreetMap:
 
 ```html
@@ -152,12 +212,18 @@ Images generated from the Mapbox Studio print export option also require Mapbox 
 © Mapbox, © OpenStreetMap
 ```
 
+如果您想要为任何用途用Mapbox Studio的打印输出选项打印地图，[请联系我们](https://www.mapbox.com/contact/sales/)。
 To print images generated from the Mapbox Studio print export option for any use, [contact us](https://www.mapbox.com/contact/sales/).
 
+
+
+### 其他的制图框架
 ### Other mapping frameworks
 
+如果您在结合其他像[leaflet](http://leafletjs.com/)或[OpenLayers](https://openlayers.org)这样的开源库一起使用Mapbox地图，那么我们仍然要求Mapbox的文字商标和attribution出现。这些库也许不会自动添加必须的attribution，您需要自己添加。
 If you are using Mapbox maps with another open source library, like [Leaflet](http://leafletjs.com/) or [OpenLayers](https://openlayers.org), the Mapbox wordmark and attribution are still required. These libraries may not automatically add necessary attribution, so you'll need to add it yourself.
 
+用Leaflet的时候，您可以用`addAttribution()`控制`attribution`添加对Mapbox和OpenStreetMap的注释：
 With Leaflet, you can attribute Mapbox and OpenStreetMap with the `attribution` control, using the `addAttribution()` function:
 
 ```js
@@ -231,10 +297,15 @@ If you're using a mapping library _without_ an attribution control, you will nee
 Mapbox static map with custom attribution and wordmark applied.
 </div>
 
+
+### 当您没在使用地图的时候
 ### When you're not using a map
 
+有些Mapbox的服务可以不再Mapbox地图上用。您有责任为您使用的Mapbox服务提供正确的attribution。这个attribution必须显示在您使用的Mapbox服务旁明显的位置。
 Some Mapbox services can be used off of a Mapbox map. You are responsible for providing the correct attribution for the Mapbox services that you use. This attribution must be displayed prominently next to the Mapbox service that you are using.
 
+
+如果您没有直接在地图上使用这些服务，您可以参照以下代码作为起点开始添加这些Mapbox服务的attribution。Mapbox不能给您提供任何具体的添加attribution的标准，因为最终实施将会决定于您的用户案例和设置细节。在这个例子中，使用的Mapbox服务是[Directions API](https://docs.mapbox.com/api/navigation/#directions)，它的attribution是被放在了一系列指令的末尾。
 The following code is intended to give you a starting point for how to add attribution for Mapbox services if you are not using those services directly on a map. Mapbox cannot provide you with specific guidelines on how to add attribution since the final implementation will be dependent on your use case and your configuration details. In this example, the Mapbox service being used is the [Directions API](https://docs.mapbox.com/api/navigation/#directions), and the attribution is placed at the end of the list of instructions.
 
 **HTML**
@@ -258,7 +329,7 @@ The following code is intended to give you a starting point for how to add attri
     margin-bottom: -2px;
     padding: 3px;
   }
-  
+
   .heading {
     font-size: 20px;
     font-weight: strong !important;
@@ -285,10 +356,15 @@ The following code is intended to give you a starting point for how to add attri
   </div>
 </div>
 
+
+### 当您在使用非Mapbox地图的时候
 ### When you're using a non-Mapbox map
 
+
+如果您在非Mapbox地图上使用Mapbox服务，这些Mapbox服务必须有恰当的标注。您有责任为这些您使用的Mapbox服务提供准确的attribution。这些attribution必须被放在您所使用的非Mapbox地图上或附近的明显位置。
 If you are using Mapbox services on a non-Mapbox map, these Mapbox services must be properly attributed. You are responsible for providing the correct attribution for the Mapbox services that you use. This attribution must be displayed prominently on or next to the non-Mapbox map you are using.
 
+如果您在非Mapbox地图上使用Mapbox服务，您可以参照以下代码作为起点进行对Mapbox服务的标注。Mapbox不能给您提供任何具体的添加attribution的标准，因为最终实施将会决定于您的用户案例和设置细节。在这个例子中，使用的Mapbox服务是[Isochrone API](https://docs.mapbox.com/api/navigation/#isochrone)，它的attribution是被放在了非Mapbox地图的下面。
 The following code is intended to give you a starting point for how to add attribution for Mapbox services if you are using them on a non-Mapbox map. Mapbox cannot provide you with specific guidelines on how to add attribution since the final implementation will be dependent on your use case and your configuration details. In this example, the Mapbox service being used is the [Isochrone API](https://docs.mapbox.com/api/navigation/#isochrone), and the attribution is placed below the non-Mapbox map.
 
 **HTML**
@@ -325,6 +401,10 @@ The following code is intended to give you a starting point for how to add attri
 </div>
 </div>
 
+
+## 报告attribution问题
 ## Reporting attribution problems
 
+
+您可以通过我们的[联系表格](https://www.mapbox.com/contact/)报告或询问关于可能存在违规的网站。
 You may report or inquire about sites that are in possible violations of these terms through our [contact form](https://www.mapbox.com/contact/).
