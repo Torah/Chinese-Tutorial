@@ -42,20 +42,20 @@ These guides will introduce you to the building blocks of Mapbox and how you can
 - **Develop** full-featured web and mobile applications.
 - **Extend** your app's functionality with web services for [geocoding](/help/glossary/geocoding/), directions, spatial analysis, and more.
 
-欢迎来到Mapbox！MapBox是一个跨行业的开发平台，用于创建自定义应用程序，解决地图、数据和空间分析问题。Mapbox的工具是构建模块，支持Web和移动地图开发制作过程的每个部分。无论您的目标是创建一个精美的地图来匹配您的网站，还是建立一个功能齐全的地理处理应用程序，我们为您提供帮助。
+欢迎来到Mapbox！MapBox是一个跨行业的开发平台，用于创建自定义应用程序，解决地图、数据和空间分析问题。Mapbox的工具集是模块积木，用以支持Web和移动地图开发制作过程的每个环节。无论您的目标是创建一个精美的地图来适配您的网站，还是建立一个功能齐全的地理信息处理应用，我们都为您提供帮助。
 
-这些指南将向您介绍MapBox的构建以及如何使用：
+本指南将向您介绍MapBox的模块积木并教会您：
 
-- 使用MapBox的**大量数据数据**。
-- 将你的**地图样式渲染**要素最小细节。
+- 使用MapBox的**robust data**。
+- **style**定义你的地图到毫厘。
 - **上传**或**创建**自定义数据。
-- **开发**功能完备的网络和移动地图应用。
-- **扩展**应用程序的地图功能,包括使用[地理编码](/help/glossary/geocoding/)、路径分析、空间分析等的Web服务。以简单代码创建静态地图。
+- **开发**功能完备的web和移动端应用。
+- **扩展**你的app的功能性, 使用[地理编码](/help/glossary/geocoding/)、路径分析、空间分析等的Web服务。
 
 
 - **Create** static maps programmatically.
 
-- 以代码**创建**静态地图。
+- 以编程方式**创建**静态地图。
 
 ## Use Mapbox map data
 
@@ -76,15 +76,14 @@ You can find a full list of layers available in the Mapbox Streets, Terrain, and
 
 ## 使用MapBox地图数据
 
-   主要的[瓦片地图](/help/glossary/tileset/)：Mapbox街道瓦片地图、Mapbox地形瓦片地图和Mapbox卫星瓦片地图。每一个瓦片地图有着各自不同的数据源。
+   我们的核心[tilesets](/help/glossary/tileset/)：Mapbox街道、Mapbox地形、Mapbox交通和Mapbox卫星。每一个tileset包含各自独一无二的数据集，其来源于多种多样的数据源。
    
-   - **MapBox街道地图**包括基于OpenStreetMap的数据的建筑物，行政区域，水域和土地数据[OpenStreetMap](http://www.openstreetmap.org/)，每五分钟更新一次。
+   - **MapBox街道**包括基于[OpenStreetMap](http://www.openstreetmap.org/)数据源的街道、建筑物，行政区域，水域和陆地资料，每五分钟更新一次。   
+   - **MapBox地形**包括陆地覆盖物资料和全球高程数据集，配有轮廓线、山体阴影和高程数据。
+   - **MapBox卫星**包括[各种来源的](https://www.mapbox.com/about/maps)全球卫星图像，由Mapbox处理和缝合。
+   - **MapBox交通**包括MapBox街道上定期更新的车辆拥堵信息。
    
-   - **MapBox地形地图**包括土地覆盖数据和全球高程数据——轮廓、山体阴影和高程数据。
-   - **MapBox卫星地图**包括各种来源的[全球卫星图像](https://www.mapbox.com/about/maps)，由Mapbox处理和拼接。
-   - **MapBox交通地图**包括MapBox街道地图定期更新的车辆拥堵信息。
-   
-  您可以在[矢量瓦片地图概览](https://www.mapbox.com/vector-tiles/)中找到Mapbox 街道地图，地形地图和交通地图，可以查看完整的地图类型列表。您可以在我们的[地图页面](https://www.mapbox.com/about/maps)上详细了解我们的数据来源。
+  您可以在我们的[矢量瓦片图概览](https://www.mapbox.com/vector-tiles/)中找到可供使用的Mapbox街道，地形和交通来源的完整列表。您可以在我们的[地图页面](https://www.mapbox.com/about/maps)上详细了解我们的数据来源。
 
 ## Design a map
 
@@ -108,17 +107,17 @@ The [Mapbox Studio style editor](https://www.mapbox.com/studio/styles) is a full
 
 ## 设计一个地图
 
-  自定义地图样式是MapBox Studio的核心功能之一。我们提供了一个高级应用，使用Mapbox Studio样式编辑器，将此自定义设置地图样式。在mapbox studio中，您可以从我们的[模板样式](https://www.mapbox.com/maps/)或[设计样式](https://www.mapbox.com/designer-maps/)中的一种地图样式开始，并根据您的具体规范设置每个单独的图层样式。
+  自定义地图样式是MapBox Studio的核心功能之一。我们提供了一个高级应用将这种定制性让您触手可及：即应用Mapbox Studio样式编辑器。在Mapbox Studio中，你能够从我们的[模板样式](https://www.mapbox.com/maps/)或[设计样式](https://www.mapbox.com/designer-maps/)中的一种地图样式开始，根据您的具体规范设计每个单独图层的样式。
 
   在Mapbox Studio左侧，您可以看到**基本样式**，即由一组有限图层组成的模板样式。在右侧，您可以看到使用所有相同基础数据的**自定义样式**，但该样式是通过在Mapbox Studio样式编辑器中更改颜色和字体进行自定义设置。
   
-  [Mapbox studio样式编辑器](https://www.mapbox.com/studio/styles)是一个功能齐全的地图编辑器，您可以直接在浏览器中完全控制地图的样式。无论是从Mapbox模板样式开始还是自定义开始，样式设置的可能性实际上是无穷的。使用Mapbox Studio样式编辑器，可以：
+  [Mapbox studio样式编辑器](https://www.mapbox.com/studio/styles)是一个功能齐全的地图编辑器，您可以直接使用浏览器来完全控制地图的样式。无论是从Mapbox模板样式开始还是从头开始，样式设置的可能性实际上是无穷无尽的。使用Mapbox Studio样式编辑器，您可以：
   
   - 创建基于缩放级别动态更改的样式。
   - 使用自定义字体。
-  - 为标签设置自定义对齐、间距、偏移等。
+  - 为你的标签设置自定义对齐、倾斜、偏移等。
   - 为地图图层设置颜色、权重和透明度。
-  - 根据属性条件进行瓦片设置。
+  - 根据属性过滤tilesets。
  
   
 ## Add custom data
@@ -129,9 +128,9 @@ Mapbox provides robust geospatial data with our Streets, Terrain, Traffic, and S
 
 ## 添加自定义数据
 
-  Mapbox的街道、地形、交通和卫星瓦片地图提供了大量的地理空间数据，但地图应用程序通常需要自定义数据。要将自定义数据添加到地图，可以将自己的数据上传为[瓦片数据](/help/glossary/tileset)或[创建数据集](/help/glossary/dataset)。
+  Mapbox的街道、地形、交通和卫星tilesets提供了大量的地理空间数据，但地图应用程序通常需要自定义数据。要将自定义数据添加到地图，你可以以[tilesets](/help/glossary/tileset)格式或创建[datasets](/help/glossary/dataset)上传自己的数据。
   
-  **瓦片数据和数据集是两种不同类型的数据**：瓦片数据是可以进行地图样式渲染，数据集数据是可以数据编辑的。地图样式渲染包括改变要素的颜色、透明度、字体或者图标等。数据编辑包括改变要素的位置（多点、多线、多面），改变要素的几何构造并且可以增加或者删除要素上的某些要素集合。如果你创建或者导入了一个要素集，那么你就可以在MapBox studio中导出正确合适瓦片并且你可以在MapBox studio中编辑你想要的任何要素。
+  **Tilesets和数据集是两种不同类型的数据**：tilesets是可渲染的，数据集是可编辑的。样式渲染包括改变像颜色、透明度、字体或者图标等特征。编辑包括改变特征的位置（点、线、形），改变几何形状，从一组特征集合添加或删除特征。如果你创建或导入了一个数据集，那么你可以就在MapBox studio中导出你的数据集到一个tileset，并可以在MapBox studio中像其他tileset一样使用它。
 
 ### Upload tilesets
 
@@ -141,11 +140,11 @@ For more details about accepted file types and methods for uploading data, see t
 
 <a className='txt-bold' href="/help/how-mapbox-works/uploading-data/">{{<ChevronousText text="Learn about uploads" />}}</a>
 
-### 上传瓦片数据
+### 上传tilesets
 
-  瓦片地图是矢量数据的轻量级集合，为渲染而优化，不可编辑。[上传自定义数据时](/help/troubleshooting/uploads)，文件将转换为矢量瓦片，可以在Mapbox Studio样式编辑器中设置样式，使用[Mapbox GL JS](https://www.mapbox.com/mapbox-gl-js/example/queryrenderedfeatures/)添加到交互式Web地图中，并用于使用Mapbox Maps SDK为[iOS](https://docs.mapbox.com/ios/maps/overview/)和[Android](https://docs.mapbox.com/android/maps/overview/)创建的移动应用程序。
+  tilesets是矢量数据的轻量级集合，为渲染而适应性优化，并且不可被编辑。当你[上传自定义数据](/help/troubleshooting/uploads)，你的文件被转换为tilesets，它可以在Mapbox Studio样式编辑器中设置样式，被添加到[Mapbox GL JS](https://www.mapbox.com/mapbox-gl-js/example/queryrenderedfeatures/)并被使用于由Mapbox Maps SDK创建的移动应用程序。Mapbox Maps SDK for [iOS](https://docs.mapbox.com/ios/maps/overview/)和[Android](https://docs.mapbox.com/android/maps/overview/)。
   
-  有关可接受的文件类型和数据上传的方法的详细信息，可以参阅[《数据上传指南》](/help/how-mapbox-works/uploading-data/)。
+  关于可接受的文件类型和数据上传的方法的详细信息，可以参阅[《数据上传指南》](/help/how-mapbox-works/uploading-data/)。
 
 
 ### Create datasets
@@ -161,7 +160,7 @@ For more details about accepted file types and methods for creating datasets, se
 
 ### 创建数据集
 
-  一个可以编辑的数据集合应该是[GeoJSON格式的要素](https://tools.ietf.org/html/rfc7946)。要素存储在MapBox中必须具有几何属性和特征属性，两者都可以在MapBox studio数据集编辑器中编辑或通过调用MapBox的API进行编辑。可以使用Mapbox Studio中的[数据集编辑器](https://www.mapbox.com/studio-manual/reference/datasets) 导入、创建和编辑GeoJSON点、线和多边形要素及其属性。处理完数据集后，可以将其导出到tileset，以便与MapBox studio[样式编辑器](https://www.mapbox.com/studio/)一起使用。一次可以加载到MapBox studio数据集编辑器中的数据量是有限的，但是可以使用MapBox[数据集API](https://docs.mapbox.com/api/maps/#datasets)添加更多功能并以代码编辑的方式管理它们。
+  一个可被编辑的数据集合应该是[GeoJSON格式的特征](https://tools.ietf.org/html/rfc7946)。MapBox存储的特征具有几何属性和特征属性，两者皆可在MapBox studio数据集编辑器中编辑或通过调用MapBox的API进行编辑。你可以使用Mapbox Studio中的[数据集编辑器](https://www.mapbox.com/studio-manual/reference/datasets) 导入、创建和编辑GeoJSON点、线和多边形特征及其属性。一旦你处理完数据集，就能够将其导出到tileset，以便与MapBox studio[样式编辑器](https://www.mapbox.com/studio/)一起使用。一次可以加载到MapBox studio数据集编辑器中的数据量是有限的，但是可以使用MapBox[数据集API](https://docs.mapbox.com/api/maps/#datasets)添加更多功能并以代码编辑的方式管理它们。
   
   <img alt=" 动画gif演示如何在MapBox studio数据集编辑器中修改功能" className='px0 py0 mx0 my0' src="/help/img/studio/dataset-modify-feature.gif" />
   
@@ -199,10 +198,10 @@ This web application uses a combination of HTML, CSS, JavaScript, and  **Mapbox 
 ### Web地图应用
   您可以使用我们的JavaScript库之一将您的地图发布到网络上。
   
-  这个Web应用程序使用HTML、CSS、JavaScript GL JS的组合，**Mapbox GL JS**是我们基于Web-GL的JavaScript库。如果您对如何构建这样的应用程序感兴趣，请阅读我们的分步[构建教程](/help/tutorials/building-a-store-locator/)。
+  这个Web应用程序使用HTML、CSS、JavaScript 和Mapbox GL JS的组合，**Mapbox GL JS**是我们基于Web-GL的JavaScript库。如果您对如何构建这样的应用程序感兴趣，请阅读我们的亦步亦趋，[构建一个存储的定位](/help/tutorials/building-a-store-locator/)教程。
   
-  [Mapbox GL JS](https://www.mapbox.com/mapbox-gl-js/)是一个JavaScript库，用于从Mapbox样式和矢量瓦片创建交互式的、可自定义的地图。Mapbox GL JS使用WebGL，这是一种用于在浏览器中创建视频游戏的技术，它使您能够在地图中构建高级交互，包括地图缩放、地图方位和俯仰、基础地图数据查询以及动态过滤您选择显示的数据。您可以使用在Mapbox Studio样式编辑器中创建的自定义样式或我们提供的任何模板样式，还可以通过代码添加您想要的任何其他数据，包括geojson、图像甚至[视频](https://www.mapbox.com/mapbox-gl-js/example/video-on-a-map/)！你可以在[Mapbox GL JS示例](https://www.mapbox.com/mapbox-gl-js/examples)中探索其他许多交互式示例。
-  [Mapbox.js](https://www.mapbox.com/mapbox.js/)是我们先前的JavaScript Web地图库，它扩展了流行的[Leaflet.js](/help/glossary/classic-style/)库。 Mapbox.js可用于创建具有[经典样式](/help/glossary/classic-style/)的交互式地图。
+  [Mapbox GL JS](https://www.mapbox.com/mapbox-gl-js/)是一个JavaScript库，用于从Mapbox样式和矢量瓦片创建交互式的、可自定义的地图。Mapbox GL JS使用WebGL，这是一种用于在浏览器中创建视频游戏的技术，它使您能够在地图中构建高级交互，包括平滑缩放、地图方位和倾角、基础地图数据检索以及动态过滤选定呈现的数据。您可以使用在Mapbox Studio样式编辑器中创建的自定义样式或我们提供的任何模板样式，还可以通过代码添加您想要的任何其他数据，包括geojson、图像甚至[视频](https://www.mapbox.com/mapbox-gl-js/example/video-on-a-map/)！你可以在[Mapbox GL JS示例](https://www.mapbox.com/mapbox-gl-js/examples)中探索数十种其他交互示例。
+  [Mapbox.js](https://www.mapbox.com/mapbox.js/)是我们早期的JavaScript Web地图库，它扩展了流行的[Leaflet.js](/help/glossary/classic-style/)库。 Mapbox.js可用于创建具有[经典样式](/help/glossary/classic-style/)的交互式地图。
 
 ### Mobile applications
 
@@ -215,9 +214,9 @@ Each SDK comes bundled with five Mapbox-designed map styles and can handle any c
 
 <a className="txt-bold" href="/help/how-mapbox-works/mobile-apps/">{{<ChevronousText text="Learn about mobile apps" />}}</a>
 
- ### 移动端地图应用：
+ ### 移动端应用：
  
-  Mapbox为[IOS](https://www.mapbox.com/ios-sdk/)和[Android](https://www.mapbox.com/android-docs/)提供了一个Maps SDK，用于在本地应用程序中发布地图。IOS和Android的Maps SDK是苹果Mapkit和Googlemaps SDK的替代产品。Maps-SDK对于有这两方面经验的移动开发人员来说应该很熟悉。通常，可以通过更改 一行代码将地图替换为MapBox。
+  Mapbox为[IOS](https://www.mapbox.com/ios-sdk/)和[Android](https://www.mapbox.com/android-docs/)提供了一个Maps SDK，用于在原生应用中发布地图。IOS和Android的Maps SDK被设计用于替代苹果Mapkit和Googlemaps SDK的产品。Maps-SDK对于有这两方面经验的移动开发人员来说应该很熟悉。通常，可以通过更改一行代码将地图替换为MapBox。
   
   ![移动设备上的地图框地图](/help/img/screenshots/mobile.png)
   
@@ -236,7 +235,7 @@ Mapbox makes real world simulations possible by giving you the tools to put real
 
   ![MapBox SDK for Unity示例图片](/help/img/unity/games.jpg)
   
-  MapBox SDK for Unity应用程序中放置真实世界地图的工具，模拟真实世界成为可能。[MapBox SDK for Unity](/help/glossary/mapbox-maps-sdk-for-unity/)是用于从真实的地图数据构建unity应用程序。它包括一个强大的API，用于与Mapbox Web服务交互，将地图资源转换为游戏对象，以及一个健壮的图形用户界面，该界面构建在unity平台之上。
+  MapBox SDK for Unity 使得模拟真实世界成为可能。[MapBox SDK for Unity](/help/glossary/mapbox-maps-sdk-for-unity/)是用于从真实的地图数据构建unity应用程序。它包括一个强大的API，用以与Mapbox Web服务交互，将地图资源转换为游戏对象，以及一个健壮的、构建在unity平台之上图形用户界面。
 
 
 ## Extend your application
