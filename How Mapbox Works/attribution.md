@@ -157,7 +157,7 @@ Additionally, you must provide a telemetry opt-out option elsewhere in your appl
 
 1. 在您的应用程序束中，用`Settings.bundle`向系统设定应用的您的应用的部分加一项设置。如果您是手动安装的SDK，则里面包含了一个Settings.bundle的例子。如果您通过CocoaPods或Carthage安装的话，您可以[下载一个例子](https://github.com/mapbox/mapbox-gl-native/tree/ios-v{{constants.VERSION_IOS_MAPS}}/platform/ios/app/Settings.bundle)。
 1.  Add a setting to your application’s section in the system Settings app using a `Settings.bundle` in your application bundle. An example Settings.bundle is included with the SDK if you install it manually. If you installed the SDK via CocoaPods or Carthage, you can [download an example bundle](https://github.com/mapbox/mapbox-gl-native/tree/ios-v{{constants.VERSION_IOS_MAPS}}/platform/ios/app/Settings.bundle).
-2. 直接把设定加到应用中。向`MGLMapboxMetricsEnabled`的默认Boolean设置（`YES`）增加一个`UISwitch`。然后再您应用的`Info.plist`文件中，将`MGLMapboxMetricsEnabledSettingShownInApp`设置为`YES`。
+2. 直接把设定加到应用中。向`MGLMapboxMetricsEnabled`的默认Boolean设置（`YES`）增加一个`UISwitch`。然后在您应用的`Info.plist`文件中，将`MGLMapboxMetricsEnabledSettingShownInApp`设置为`YES`。
 2.  Integrate the setting directly into your app. Hook a `UISwitch` control up to the `MGLMapboxMetricsEnabled` Boolean user default, which should be `YES` by default. Then set `MGLMapboxMetricsEnabledSettingShownInApp` to `YES` in your app’s `Info.plist` file.
 
 
@@ -199,7 +199,7 @@ You may not otherwise alter the Mapbox wordmark or text attribution notice. If y
 ### 静态 & 打印
 ### Static & print
 
-[静态](https://docs.mapbox.com/api/maps/#static-images) 和打印的地图需要像引用照片那样标识出attribution：在图片附近以文字形式解说。如果您能放HTML，请使用这部分包含了Mapbox和OpenStreetMap链接的代码:
+[静态](https://docs.mapbox.com/api/maps/#static-images) 和打印的地图需要像引用照片那样标识出attribution：在图片附近以文字形式说明。如果您能放HTML，请使用这部分包含了Mapbox和OpenStreetMap链接的代码:
 [Static](https://docs.mapbox.com/api/maps/#static-images) and print maps need to be attributed in the same fashion as you would cite a photograph: in a textual description near the image. If you can include HTML, use this code snippet that includes links to Mapbox & OpenStreetMap:
 
 ```html
@@ -232,6 +232,7 @@ var credits = L.control.attribution().addTo(map);
 credits.addAttribution('© <a href="https://www.mapbox.com/about/maps/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> <strong><a href="https://www.mapbox.com/map-feedback/" target="_blank">Improve this map</a></strong>');
 ```
 
+如果你使用地图库 _without_ 缺少属性控制，你将需要以如下代码形式插入HTML属性和Mapbox文字商标。手动添加如下HTML和CSS到文字商标和属性上：
 If you're using a mapping library _without_ an attribution control, you will need to insert the HTML attribution and Mapbox wordmark with the code below. Use the following HTML and CSS to the wordmark and attribution manually:
 
 **HTML**
@@ -301,7 +302,7 @@ Mapbox static map with custom attribution and wordmark applied.
 ### 当您没在使用地图的时候
 ### When you're not using a map
 
-有些Mapbox的服务可以不再Mapbox地图上用。您有责任为您使用的Mapbox服务提供正确的attribution。这个attribution必须显示在您使用的Mapbox服务旁明显的位置。
+有些Mapbox的服务可以不在Mapbox地图上使用。您有责任为您使用的Mapbox服务提供正确的attribution。这个attribution必须显示在您使用的Mapbox服务旁明显的位置。
 Some Mapbox services can be used off of a Mapbox map. You are responsible for providing the correct attribution for the Mapbox services that you use. This attribution must be displayed prominently next to the Mapbox service that you are using.
 
 
