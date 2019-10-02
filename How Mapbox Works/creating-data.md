@@ -10,7 +10,7 @@ prependJs:
   - "import { datasetSample } from '../../snippets/dataset';"
 contentType: guide
 ---
-一个**数据集（dataset）**是一个可编辑的[GeoJSON](/help/glossary/geojson/) [features](/help/glossary/features/)集合。与[tileset](/help/glossary/tileset)不同，数据集可以逐要素编辑。数据集不能被直接再Mapbox Studio样式里使用但是可以被输出成一个tileset或者用Mapbox GL JS生成。任何被输出成tileset的数据集都可以作为一个图层加载到Mapbox Studio样式编辑器中。
+一个**数据集（dataset）**是一个可编辑的[GeoJSON](/help/glossary/geojson/) [features](/help/glossary/features/)集合。与[tileset](/help/glossary/tileset)不同，数据集可以逐特征编辑。数据集不能被直接在Mapbox Studio样式里使用但是可以被输出成一个tileset或通过Mapbox GL JS渲染。任何被输出成tileset的数据集都可以作为一个图层加载到Mapbox Studio样式编辑器中。
 A **dataset** is an editable collection of [GeoJSON](/help/glossary/geojson/) [features](/help/glossary/features/). Unlike [tilesets](/help/glossary/tileset), datasets can be edited on a feature-by-feature basis. Datasets cannot be used directly in a Mapbox Studio style but can be exported as a tileset or rendered with Mapbox GL JS. Any dataset exported to a tileset can be added as a layer in the Mapbox Studio style editor.
 <!--copyeditor ignore url-->
 {{
@@ -37,7 +37,7 @@ In this example, you can see a visual representation of a dataset inside the **M
 ## 数据集是怎么运作的
 ## How datasets work
 
-数据集是您的**[GeoJSON](http://geojson.org/)**原始数据的一个托管的版本。您可以用数据集编辑器或[Mapbox Datasets API](https://docs.mapbox.com/api/maps/#datasets)处理、编辑您的数据集。
+数据集是您的**[GeoJSON](http://geojson.org/)**原始数据的一个托管的版本。您可以用数据集编辑器或[Mapbox Datasets API](https://docs.mapbox.com/api/maps/#datasets)访问并编辑您的数据集。
 Datasets are a hosted version of your raw data as **[GeoJSON](http://geojson.org/)**. You can access and edit your datasets with the dataset editor or the [Mapbox Datasets API](https://docs.mapbox.com/api/maps/#datasets).
 
 
@@ -61,16 +61,16 @@ Datasets are a hosted version of your raw data as **[GeoJSON](http://geojson.org
 </div>
 
 
-数据集以**[GeoJSON](http://geojson.org/)**形式存储，这是Mapbox[网络服务及API](https://www.mapbox.com/developers/api/)通常用与编码各种地理数据的格式。基于[JSON](http://www.json.org/) (JavaScript object notation)，GeoJSON源自于JavaScript语言且可以在现代软件中被解析出来。
+数据集以**[GeoJSON](http://geojson.org/)**形式存储，这是Mapbox[网络服务及API](https://www.mapbox.com/developers/api/)通常用以编码各种地理数据的格式。基于[JSON](http://www.json.org/) (JavaScript object notation)，GeoJSON源自于JavaScript语言且可以在现代软件中被解析出来。
 Datasets are stored as **[GeoJSON](http://geojson.org/)**, a format for encoding a variety of geographic data often used by Mapbox [web services and APIs](https://www.mapbox.com/developers/api/). Based on [JSON](http://www.json.org/) (JavaScript object notation), GeoJSON is native to the JavaScript language and can be parsed in modern software.
 
 
-Mapbox将数据集要素存储为一系列的GeoJSON要素。要素是单个的（在某些情况下是一组）点、线、或多边形。Mapbox Datasets API不支持GeometryCollections或无效图形信息。每个要素都被其图形信息和属性所定义：
+Mapbox将数据集要素存储为一系列的GeoJSON要素。要素是单个的（在某些情况下是一组）点、线、或多边形。Mapbox Datasets API不支持GeometryCollections或地理信息空值。每个特征都被其地理信息和属性所定义：
 Mapbox stores dataset features as collections of GeoJSON features. Features are individual (or in some cases groups of) points, lines, or polygons. The Mapbox Datasets API does not support GeometryCollections or null geometries. Each feature is defined by its geometry and properties:
 
-- **图形信息**：用于描述每个要素的形状和位置。您可以具体说明是（Points）、线（LineStrings）、还是多边形（Polygons）。每个要素的位置和具体形状都被具体坐标确定。
+- **图形信息**：用于描述每个特征的形状和位置。您可以具体说明是（Points）、线（LineStrings）、还是多边形（Polygons）。每个特征的位置和具体形状都被具体坐标所定义。
 - **Geometry**: This describes the shape and the location of each feature. You can specify Points, LineStrings, Polygons. The location and the exact shape of each feature is determined by the coordinates that are specified.
-- **属性**：它可以包含任意JSON物体。一些用于Mapbox数据集常见属性的例子里包括`title`和`description`以在网络应用中添加弹窗。
+- **属性**：它可以包含任意JSON物体。一些用于Mapbox数据集常见属性的例子里包括在Web应用中的弹窗里的`title`和`description`。
 - **Properties**: This can contain any JSON object. Some examples of common properties that are applied to Mapbox datasets include `title` and `description` to include in popups in a web application.
 
 
@@ -89,7 +89,7 @@ You can read more about how raw data becomes a tileset in the [Upload data](/hel
 ### Downloading datasets
 
 
-当您创建了一个数据集的时候，您可以将它输出为一个tileset以在Mapbox地图里使用（参照[地图设计指南](/help/how-mapbox-works/map-design/)以获得更多信息），下载为一个GeoJSON FeatureCollection，或用Mapbox Datasets API获取。数据集在被输出后还可以被编辑，但如果您希望本地版本能反映出做出的任何改动的话，您需要保证同步更新您的新修改到下载的版本。
+当您创建了一个数据集的时候，您可以将它输出为一个tileset以在Mapbox地图里使用（参照[地图设计指南](/help/how-mapbox-works/map-design/)以获得更多信息），下载为一个GeoJSON FeatureCollection，或用Mapbox Datasets API获取。数据集在被输出后还可以被编辑，但如果您希望本地版本能够反映出所有改动的话，您需要保证同步更新您的近期修改到下载的版本。
 Once you’ve created a dataset, you can export it to a tileset for use in a Mapbox map (see the [How map design works guide](/help/how-mapbox-works/map-design/) for more information), download it as a GeoJSON FeatureCollection, or access it with the Mapbox Datasets API. Datasets can still be edited after export, but you will need to make sure to sync your downloaded version with your new edits if you would like your local copy to reflect any changes you've made.
 
 请参考[Mapbox Studio手册数据集部分](https://www.mapbox.com/studio-manual/reference/datasets/)来了解如何下载和输出数据集。
@@ -108,11 +108,11 @@ You can create a dataset from scratch in the Mapbox Studio [dataset editor](http
 ### Mapbox Studio
 
 
-在Mapbox Studio中，您可以使用数据集编辑器通过可视界面而非直接写GeoJSON来创建一个新的数据集。为了使用Mapbox Studio数据集编辑器来创建数据集，您可以创建一个新的空数据集再通过在数据集编辑器里画把要素加进去，您也可以上传一个GeoJSON或CSV文件作为数据集，然后用数据集编辑界面编辑、添加、删除要素。
+在Mapbox Studio中，您可以使用数据集编辑器通过可视界面而非直接写GeoJSON来创建一个新的数据集。为了使用Mapbox Studio数据集编辑器来创建数据集，您可以创建一个新的空数据集再通过在数据集编辑器里绘制特征以添加它们，您也可以上传一个GeoJSON或CSV文件作为数据集，然后用数据集编辑界面编辑、添加、删除特征。
 In Mapbox Studio, you can use the dataset editor to create a new dataset using a visual interface rather than writing the GeoJSON directly. To create a dataset with the Mapbox Studio dataset editor, you can either create a new empty dataset and add features to it by drawing them in the dataset editor, or you can upload a GeoJSON or CSV file as a dataset and edit, add, and delete features using the dataset editor interface.
 
 
-您可以参照[Mapbox Studio手册](https://www.mapbox.com/studio-manual/reference/datasets/)了解更多关于如何用Mapbox Studio数据集编辑器创建数据集的信息。
+您可以参照[Mapbox Studio手册](https://www.mapbox.com/studio-manual/reference/datasets/)了解更多关于如何用Mapbox Studio数据集编辑器创建数据集的内容。
 You can learn more about how to create datasets using the Mapbox Studio dataset editor in the [Mapbox Studio Manual](https://www.mapbox.com/studio-manual/reference/datasets/).
 
 
@@ -120,7 +120,7 @@ You can learn more about how to create datasets using the Mapbox Studio dataset 
 ### Mapbox Datasets API
 
 
-利用Mapbox Datasets API，您可以通过请求[插入要素](https://docs.mapbox.com/api/maps/#insert-or-update-a-feature)来添加要素。您不能直接通过Datasets API直接上传文件。Datasets API一次只能接收一个要素。如果您想要从FeatureCollection添加许多要素的话，您可以通过编程完成。
+利用Mapbox Datasets API，您可以通过请求[插入要素](https://docs.mapbox.com/api/maps/#insert-or-update-a-feature)来添加要素。您不能通过Datasets API直接上传文件。Datasets API一次只能接收一个特征。如果您想要从FeatureCollection添加许多特征的话，您可以通过编程完成。
 Using the Mapbox Datasets API, you can add features by making requests to [insert a feature](https://docs.mapbox.com/api/maps/#insert-or-update-a-feature). You cannot upload a file directly through the Datasets API. The Datasets API accepts one Feature at a time. If you would like to add many Features from a FeatureCollection, you can do so programmatically.
 
 
