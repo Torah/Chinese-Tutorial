@@ -12,7 +12,7 @@ prependJs:
 文章类别: 指南教程
 ---
 
-Mapbox提供诸多API（应用程序编程接口）以便添加方向导航相关服务到您的应用中。例如，使用 [Mapbox Directions API](https://docs.mapbox.com/api/navigation/#directions) 来生成一条路径并配有行程时间，估计距离以及逐向道路导航指示相关信息，使用 [Mapbox Matrix API](https://docs.mapbox.com/api/navigation/#matrix) 来获取不同地点间的旅途时间，使用 [Mapbox Optimization API](https://docs.mapbox.com/api/navigation/#optimization) 来获得地点间行程时间最短的路径，使用 [Mapbox Map Matching API](https://docs.mapbox.com/api/navigation/#map-matching) 来将模糊路径校准至可行合理的道路网路上。从交付高效行程路径安排，到提供具体导航步骤指示，Mapbox准备了许多必要的工具以帮助您将方向导航服务添加到应用中。
+Mapbox提供诸多API（应用程序编程接口）以便添加方向导航相关服务到您的应用中。例如，使用 [Mapbox Directions API](https://docs.mapbox.com/api/navigation/#directions) 来产生一条路径并配有行程时间，估计距离以及逐次拐弯/转向的道路导航指引，使用 [Mapbox Matrix API](https://docs.mapbox.com/api/navigation/#matrix) 来获取不同地点间的旅途时间，使用 [Mapbox Optimization API](https://docs.mapbox.com/api/navigation/#optimization) 来获得地点间行程时间最短的路径，使用 [Mapbox Map Matching API](https://docs.mapbox.com/api/navigation/#map-matching) 来将模糊路径校准至可行合理的道路网路上。从交付高效行程路径安排，到提供具体导航步骤指示，Mapbox准备了许多必要的工具以帮助将方向导航服务集成到您的应用中。
 
 
 本篇指南将为您介绍：路径网络是如何建立的，如何将方向导航服务添加到跨平台应用中，以及如何给方向导航服务提供反馈意见。您可以参考本篇指南最后的相关文档来开始使用Mapbox方向导航服务。
@@ -22,29 +22,26 @@ Mapbox提供诸多API（应用程序编程接口）以便添加方向导航相�
 }}
 
 
-本示例使用了 [Mapbox GL Directions插件](https://github.com/mapbox/mapbox-gl-directions) 将驾驶，骑行和步行的路径导航添加至一个由Mapbox GL JS构建的网页应用中。输入两个地点（如，地点A和地点B），您便可以在上方看到相关查询的原始JSON代码。
+本示例使用了 [Mapbox GL Directions插件](https://github.com/mapbox/mapbox-gl-directions) 来添加驾驶，骑行和步行的路径导航至一个由Mapbox GL JS构建的网页应用中。输入两个地点（如，地点A和地点B），您便可以在上方看到相关查询的原始JSON代码。
 
-Mapbox Directions API返回的JSON对象包含了所选路径以及有关此路径的行程时间，预估距离以及逐向道路导航指示信息。当使用Mapbox GL Directions插件，所有的这些信息将会在查询请求完成时被自动添加到地图。在默认情况下，此插件会返回逐向道路导航指示信息，而本示例选择了隐藏逐项道路导航指示。示例所展示的原始JSON代码可以为您揭示其返回的方向导航对象具体包含了哪些信息。
+Mapbox Directions API返回的JSON对象包含了所选路径以及有关此路径的行程时间，预估距离以及逐次转向的道路导航指引。当使用Mapbox GL Directions插件，所有的这些信息将会在查询请求完成时被自动添加到地图。在默认情况下，此插件会返回逐次转向的道路导航指引，而本示例选择了隐藏它们。示例所展示的原始JSON代码可以为您揭示其返回的方向导航对象具体包含了哪些信息。
 
 ## 方向导航如何运作
 
-当您提供两个或多个地点位置给Mapbox Directions API，它会为您返回：一个GeoJSON line对象作为一条 **路径** 供您添加至地图上，即将在应用中显示的 **逐向道路导航指示** 文字信息，以及与所选出行方式相配的 **距离和预估行程时间**。此外，还有许多其他服务可以用于拓展Mapbox的方向导航功能，例如，将凌乱的GPS追踪路线修正到交通网络上，优化前往多个目的地的单程路线等。
+当您提供两个或多个地点位置给Mapbox Directions API，它会返回：一个GeoJSON line对象作为一条 **路径** 供您添加至地图上，和可以在应用中显示的 **逐次转向道路导航指示** 的文字信息，以及与所选出行方式相匹配的 **距离和预估行程时间**。此外，还有许多其他服务可以用于拓展Mapbox的方向导航功能，例如，将凌乱的GPS追踪路线修正到交通网络上，优化前往多个目的地的单程路线等。
 
 ### 路径网络
 
-一个可以创建并优化路径的方向导航服务需要一个强大的交通网络。这个交通网络不仅需要有路径位置信息，还需要包含如速度和转弯限制，出行方式（例如，公路，步行道，骑行道）等的路径属性信息。Mapbox的方向导航服务使用了 [OpenStreetMap](http://learnosm.org/) 提供的公路和小路网络信息，或者说是 *道路* 网络信息。OpenStreetMap是一个开源合作项目，它可以创建以供免费使用和编辑的世界地图。
+Mapbox可以创建并优化路径,其用于为给定的出行方式（开车、骑行和步行）计算最有效率的路径。路径网络包含一个强大的阡陌（也被称为ways）网络。它们有明显的属性如限速、转向限制、交通方式、是否允许自行车和行人使用。不仅需要有路径位置信息，还需要包含如速度和转弯限制，出行方式（例如，公路，步行道，骑行道）等的路径属性信息。
 
 {{
   <Note
     title='Ways 道路'
     imageComponent={<BookImage />}
   >
-    <p><em>Way (道路)</em> 是一个OpenStreetMap术语。它可以被用来描述一组通常至少有一个标签名称或者内容说明的有序节点（点）。在方向导航服务中，道路可以是公路，步行道或者骑行道。</p>
+    <p><em>Way (道路)</em> 是一个OpenStreetMap术语。它可以被用来描述一组有序节点（点），并通常至少有一个标签名称或者描述。在Mapbox的方向导航服务API的设计目的中，ways可以是公路，步行道或者骑行道。</p>
   </Note>
 }}
-
-
-OpenStreetMap项目的贡献者们已经为大家搭建好了一个巨大且可行合理的道路网络，其中还包括了有关速度和转弯限制，自行车及行人可达性的道路属性信息。这些道路属性信息为 [Open Source Routing Machine](http://project-osrm.org/) (OSRM) 计算所选出行方式（驾车，骑行，步行）的最优路线提供了框架。
 
 
 ### 行程时间
@@ -57,7 +54,7 @@ Mapbox Directions API，Matrix API和Optimization API都可以为您提供预估
 
 ### 交通流量/路况数据
 
-您可以通过使用 [Mapbox Directions API](https://docs.mapbox.com/api/navigation/#directions), [Map Matching API](https://docs.mapbox.com/api/navigation/#map-matching) 或者 [Matrix API](https://docs.mapbox.com/api/navigation/#matrix) 中的`mapbox/driving-traffic` profile来将实时路况信息纳入路径选择分析中并生成相应的ETA（预计到达时间）。您也可以将一个交通路况图层添加到可视地图的道路几何中去。若您想了解更多交通路况图块集的相关内容，请阅读 [我们的地图数据](/help/how-mapbox-works/mapbox-data/#mapbox-traffic) 这一章节。
+您可以通过使用 [Mapbox Directions API](https://docs.mapbox.com/api/navigation/#directions), [Map Matching API](https://docs.mapbox.com/api/navigation/#map-matching) 或者 [Matrix API](https://docs.mapbox.com/api/navigation/#matrix) 中的`mapbox/driving-traffic` profile来将实时路况信息纳入路径选择分析中并生成相应的ETA（预计到达时间）。您也可以将一个交通路况图层添加到可视地图的道路几何体中去。若您想了解更多交通路况tileset的相关内容，请阅读 [我们的地图数据](/help/how-mapbox-works/mapbox-data/#mapbox-traffic) 这一章节。
 
 请注意尽管 `mapbox/driving-traffic` profile 有来自世界范围内的路况信息，但是各个国家或地区据此估算出的行程时间的准确度不尽相同。
 
@@ -309,7 +306,7 @@ Mapbox Matrix API可以为您返回多地点间的所有行程时间信息。每
 
 Matrix API将无一例外地为您返回记录有最高效路线估算出的行程时间的矩阵时间表，而矩阵中的每一个元素对应一个起始-终点地点对。
 
-地点间预估行程时间在矩阵中不一定是对称的（例如，由A到B的预估行程时间可能不同于由B到A的预估行程时间），因为单行道和转弯限制可能会修改方向和路径选择。Matrix API返回的行程时间以秒为单位。它并不会返回路径几何及距离信息。如 [Directions API](https://docs.mapbox.com/api/navigation/#directions) 一样，Matrix API请求中的地点必须在同一块大陆上（不可跨越水体）。
+地点间预估行程时间在矩阵中不一定是对称的（例如，由A到B的预估行程时间可能不同于由B到A的预估行程时间），因为路径可能因单行道和转弯限制而不同。Matrix API返回的行程时间以秒为单位。它并不会返回路径几何或距离信息。如 [Directions API](https://docs.mapbox.com/api/navigation/#directions) 一样，Matrix API请求中的地点必须在同一块大陆上（不可跨越水体）。
 
 此API允许您构建可以高效检测坐标点间可达性的工具，根据行程时间筛选地点，以及使用您自己的算法解决优化问题。
 
@@ -392,7 +389,7 @@ Matrix API将无一例外地为您返回记录有最高效路线估算出的行�
 
 您可以使用 [Mapbox Navigation SDK for iOS and Android](https://www.mapbox.com/navigation-sdk/) 将方向导航服务添加至移动设备应用中去。有了Navigation SDK，它只需短短几行代码就可以在您的应用中展示一个完整的导航体验。在Navigation SDK中，您可以：
 
-- 生成逐向道路导航指示。
+- 生成逐次转向道路导航指示。
 - 在用户偏离指定路线时自动变更导航路线。
 - 为不同出行方式，如步行，骑行和驾驶，提供方向导航服务。
 - 提供实时交通路况信息。
